@@ -38,5 +38,6 @@ public class Scheduler {
         scheduler.addTask(task2);
         scheduler.addTask(task3);
         scheduler.scheduleTasks();
+
     }
 }

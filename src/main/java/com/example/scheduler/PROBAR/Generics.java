@@ -14,5 +14,9 @@ public class Generics<T>
         System.out.println(ejemplo);
         Integer ejemplo2= (Integer) lista.get(1);
         System.out.println(ejemplo2);
+        System.out.println("----------------------------------------------------------------------");
+        for(Object o:lista){
+            System.out.println(o);
+        }
     }
 }
