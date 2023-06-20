@@ -2,6 +2,7 @@ package com.example.scheduler.PROBAR;
 
 import com.example.scheduler.DiskTask;
 import com.example.scheduler.Sleeper;
+import com.example.scheduler.Task;
 import com.example.scheduler.TaskFinal;
 
 import java.time.DayOfWeek;
@@ -86,57 +87,60 @@ public class PRUEBAS
         numeros.offer(4);
         numeros.offer(1);//no entiendo el orden en que se imprimen
         numeros.offer(7);
-        //long cont=2;
+
         Sleeper sleeper = new Sleeper();
+                                                                                /*
+                                                Timer timer = new Timer();
+                                                TimerTask task = new TimerTask()
+                                                {
 
-        Timer timer = new Timer();
-        TimerTask task = new TimerTask()
-        {
-            int cont = 2;
-            @Override
-            public void run() {
-                numeros.poll();
-                System.out.println("Tamaño " + numeros.size() + " esta vacia " + numeros.isEmpty());
-                if(numeros.isEmpty()){
-                    timer.cancel();
-                }
-            }
-        };
-        timer.schedule(task, 3000, 1000);
-        /*
-        while(!numeros.isEmpty())
-        {
-          //  sleeper.runWithDelay(() -> System.out.println(numeros.poll()),cont,TimeUnit.SECONDS);
-            numeros.poll();
-            System.out.println("Tamaño " + numeros.size() + "esta vacia " + numeros.isEmpty());
+                                                    @Override
+                                                    public void run() {
+                                                        numeros.poll();
+                                                        System.out.println("Tamaño " + numeros.size() + " esta vacia " + numeros.isEmpty());
+                                                        if(numeros.isEmpty()){
+                                                            timer.cancel();
+                                                        }
+                                                    }
+                                                };
+                                                timer.schedule(task, 3000, 1000);*/
+                            /*3 long cont=1;
+                            while(!numeros.isEmpty())
+                            {
+                                //sleeper.runWithDelay(() -> System.out.println(numeros.poll()),cont,TimeUnit.SECONDS);  DA TREMENDOS PROBLEMAS EN EL LOOP
 
-            cont++;
-        }
-        System.out.println(numeros.size());
+                                System.out.println("Tamaño " + numeros.size() + " esta vacia " + numeros.isEmpty());
+                                System.out.println(numeros.poll());
 
-         */
-        /*System.out.println(numeros.isEmpty());
+                            }
+                            System.out.println("Tamaño " + numeros.size() + " esta vacia " + numeros.isEmpty());
+                            3*/
+
+        //System.out.println(numeros.isEmpty());
 
 
-        PriorityQueue tareas= new PriorityQueue<Comparable>();
+        PriorityQueue tareas= new PriorityQueue<Task>();
         TaskFinal taskFinal= new TaskFinal("COMMON 1");
         DiskTask diskTask= new DiskTask("DISK 1");
         TaskFinal taskFinal2= new TaskFinal("COMMON 2");
         DiskTask diskTask2= new DiskTask("DISK 2");
-        TaskFinal taskFinal3= new TaskFinal("COMMON 3");*/
+        TaskFinal taskFinal3= new TaskFinal("COMMON 3");
+        TaskFinal taskFinal4= new TaskFinal("COMMON 4");
 
-        //tareas.offer(taskFinal);
-        //tareas.offer(taskFinal2);
-        //tareas.offer(diskTask);
-        //tareas.offer(diskTask2);
-        //tareas.offer(taskFinal3);
+        tareas.offer(taskFinal);
+        tareas.offer(diskTask);
+        tareas.offer(diskTask2);
+        tareas.offer(taskFinal2);
+        tareas.offer(taskFinal3);
+        tareas.offer(taskFinal4);
 
-        /*while(!tareas.isEmpty())
+        while(!tareas.isEmpty())
         {
             Object o=tareas.poll();
-            if(o instanceof DiskTask){((DiskTask) o).execute();}
-            if(o instanceof TaskFinal){((TaskFinal) o).execute();}
-        }*/
+            if(o instanceof Task){((Task) o).execute();}
+
+
+        }
 
     }
 }
