@@ -4,9 +4,9 @@ public class DiskTask implements Comparable<DiskTask>{
     private String name;
     private int priority;
 
-    public DiskTask(String name, int priority) {
+    public DiskTask(String name) {
         this.name = name;
-        this.priority = priority;
+        this.priority = 2;
     }
 
     public void execute() {

@@ -1,12 +1,12 @@
 package com.example.scheduler;
 
-class TaskFinal implements Comparable<DiskTask> {
+public class TaskFinal implements Comparable<DiskTask> {
     private String name;
     private int priority;
 
-    public TaskFinal(String name, int priority) {
+    public TaskFinal(String name) {
         this.name = name;
-        this.priority = priority;
+        this.priority = 1;
     }
 
     public void execute() {
